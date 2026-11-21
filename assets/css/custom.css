@@ -1,0 +1,58 @@
+/* MH Construction & Stonework - small additions to Tailwind */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Visible focus on light surfaces (default) */
+:focus-visible {
+  outline: 3px solid #8A5F2E;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Visible focus on dark surfaces */
+.dark-surface :focus-visible {
+  outline-color: #D4A973;
+}
+
+/* Modal dialogs */
+dialog.legal-modal {
+  padding: 0;
+  border: 0;
+  width: min(92vw, 46rem);
+  max-height: 86vh;
+  border-radius: 0.875rem;
+  background: #ffffff;
+  color: #1F2328;
+  box-shadow: 0 25px 60px rgba(31, 35, 40, 0.35);
+}
+
+dialog.legal-modal::backdrop {
+  background: rgba(31, 35, 40, 0.72);
+}
+
+dialog.legal-modal .modal-body {
+  max-height: calc(86vh - 4.5rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
